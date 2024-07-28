@@ -1,15 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>hello</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,400;1,500;1,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header></header>
+      <form class="search-form" id="search-form">
+        <input
+          type="search"
+          placeholder="Enter a city..."
+          id="search-form-input"
+          class="search-form-input"
+          required
+        />
+        <input type="submit" value="Search" class="search-form-button" />
+      </form>
 
-  <footer>Coded by
-    <a href="https://github.com/olajumokeolaife/" target="_blank">Olajumoke</a>,code  hosted <a href="https://github.com/olajumokeolaife/vanilla-weather-project" target="_blank" >on Github</a> and website deployed <a href="https://myvanilla-weather.netlify.app/" target="_blank">on Netlify</a> 
-     </footer>
-</body>
+      <main>
+        <div class="weather-app-data">
+          <div>
+            <h1 class="weather-app-city" id="city"></h1>
+            <p class="weather-app-details">
+              <span id="time"></span>,
+              <span id="description"></span>
+              <br />
+              Humidity: <strong id="humidity"></strong>, Wind:
+              <strong id="wind-speed">3.13km/h</strong>
+            </p>
+          </div>
+
+          <div class="weather-app-temperature-container">
+            <div class="weather-app-icon">☁</div>
+            <div class="weather-app-temperature" id="temperature"></div>
+            <div class="weather-app-unit">°C</div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        This was Coded by
+        <a href="https://github.com/olajumokeolaife/" target="_blank"
+          >Olajumoke,</a
+        >
+        it's
+        <a
+          href="https://github.com/olajumokeolaife/vanilla-weather-project"
+          target="_blank"
+          >open-sourced on Github</a
+        >
+        and
+        <a href="https://myvanilla-weather.netlify.app/" target="_blank"
+          >hosted on Netlify</a
+        >
+      </footer>
+    </div>
+    <script src="./src/index.js"></script>
+  </body>
 </html>
