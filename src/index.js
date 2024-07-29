@@ -21,6 +21,8 @@ function refreshWeather(response) {
                 src="${response.data.condition.icon_url}"  class="weather-app-icon"
                 alt=""
               />`;
+
+  getForecast("response.data.city");
 }
 
 function formatDate(date) {
@@ -36,11 +38,11 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
@@ -59,8 +61,15 @@ function handleSearchSubmit(event) {
   // this will make whatever city we type in the search bar to be the same as what shows in the city value
 }
 
+function getForecast(city) {
+  let apiKey = "020tf43d84eabo66f25607aeee3f935a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
 //FORECAST
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = "";
 
@@ -88,4 +97,3 @@ searchformElement.addEventListener("submit", handleSearchSubmit);
 
 //this city here is the default city that will show when we load the page the 1st time
 searchCity("Paris");
-displayForecast();
